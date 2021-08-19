@@ -27,8 +27,12 @@ public class TodoService {
 
     public Todo updateTodo(String id, Todo updateTodo) {
         Todo todo = todoRepository.findById(id).orElseThrow(() -> new TodoNotFound("Todo not found"));
-        todo.setDone(updateTodo.getDone());
-//        todo.setText(updateTodo.getText());
+       if(updateTodo.getDone() != todo.getDone()) {
+           todo.setDone(updateTodo.getDone());
+       }
+       if(updateTodo.getText() != null && !updateTodo.getText().equals(todo.getText())) {
+           todo.setText(updateTodo.getText());
+       }
         return todoRepository.save(todo);
     }
 

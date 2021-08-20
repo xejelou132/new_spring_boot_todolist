@@ -35,9 +35,8 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteTodo(@PathVariable String id) {
+    public void deleteTodo(@PathVariable String id) {
         todoService.deleteTodo(id);
-        return "Deleted Succesfully" + id;
     }
 
 }

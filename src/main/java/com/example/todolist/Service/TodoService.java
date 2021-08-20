@@ -30,7 +30,7 @@ public class TodoService {
        if(updateTodo.getDone() != todo.getDone()) {
            todo.setDone(updateTodo.getDone());
        }
-       if(updateTodo.getText() != null && !updateTodo.getText().equals(todo.getText())) {
+       if(updateTodo.getText() != null) {
            todo.setText(updateTodo.getText());
        }
         return todoRepository.save(todo);
